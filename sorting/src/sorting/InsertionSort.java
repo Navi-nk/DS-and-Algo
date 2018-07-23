@@ -1,8 +1,8 @@
 package sorting;
 
-public class InsertionSort {
+public class InsertionSort extends Sorting{
 
-    public static void sort(Integer[] inputArr) {
+    public void sort(int[] inputArr) {
         for (int i = 1; i < inputArr.length; i++) {
             int j = i;
             while (j-- > 0) {
