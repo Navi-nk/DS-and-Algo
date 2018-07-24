@@ -1,5 +1,6 @@
 package sorting;
 
+import java.math.MathContext;
 import java.util.Scanner;
 
 public class Driver {
@@ -11,6 +12,7 @@ public class Driver {
         System.out.println("Enter sorting algorithm choice");
         System.out.println("1. Insertion Sort");
         System.out.println("2. Selection Sort");
+        System.out.println("3. Merge Sort");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         switch (choice) {
@@ -19,6 +21,9 @@ public class Driver {
                 break;
             case 2:
                 new SelectionSort().sort(arr);
+                break;
+            case 3:
+                new MergeSort().sort(arr);
                 break;
             default:
                 System.out.println("In valid Choice");
