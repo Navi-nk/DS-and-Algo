@@ -13,10 +13,11 @@ public class Driver {
         System.out.println("1. Insertion Sort");
         System.out.println("2. Selection Sort");
         System.out.println("3. Merge Sort");
+        System.out.println("4. Bubble Sort");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         switch (choice) {
-            case 1:                
+            case 1:
                 new InsertionSort().sort(arr);
                 break;
             case 2:
@@ -25,14 +26,17 @@ public class Driver {
             case 3:
                 new MergeSort().sort(arr);
                 break;
+            case 4:
+                new BubbleSort().sort(arr);
+                break;
             default:
                 System.out.println("In valid Choice");
         }
-        
+
         printArray(arr);
         System.out.println(CustomBinarySearch.doSearch(arr, 2225));
     }
-    
+
     private static void printArray(int[] arr) {
         for (int a : arr) {
             System.out.print(a + " ");
