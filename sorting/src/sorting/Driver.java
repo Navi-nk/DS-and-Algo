@@ -1,21 +1,27 @@
 package sorting;
 
 import java.math.MathContext;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Driver {
 
     public static void main(String[] args) {
-        int arr[] = {3, 63, 1, 66, 75, 32, 22, 1342, 52, 6, 666, 2225, 4};
+        int[] arr = new int[10000];
+        generateRandomArray(arr, arr.length);
         System.out.println("Array to be sorted:");
         printArray(arr);
+        
         System.out.println("Enter sorting algorithm choice");
+        System.out.println("0. Test All");
         System.out.println("1. Insertion Sort");
         System.out.println("2. Selection Sort");
         System.out.println("3. Merge Sort");
         System.out.println("4. Bubble Sort");
+        System.out.println("5. Quick Sort");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
+        
         switch (choice) {
             case 1:
                 new InsertionSort().sort(arr);
@@ -29,12 +35,31 @@ public class Driver {
             case 4:
                 new BubbleSort().sort(arr);
                 break;
+            case 5:
+                new QuickSort().sort(arr);
+                break;
+            case 0:
+                new InsertionSort().sort(arr);
+                printArray(arr);
+                generateRandomArray(arr, arr.length);
+                new SelectionSort().sort(arr);
+                printArray(arr);
+                generateRandomArray(arr, arr.length);
+                new MergeSort().sort(arr);
+                printArray(arr);
+                generateRandomArray(arr, arr.length);
+                new BubbleSort().sort(arr);
+                printArray(arr);
+                generateRandomArray(arr, arr.length);
+                new QuickSort().sort(arr);
+                printArray(arr);
+                break;
             default:
                 System.out.println("In valid Choice");
         }
 
         printArray(arr);
-        System.out.println(CustomBinarySearch.doSearch(arr, 2225));
+        System.out.println(CustomBinarySearch.doSearch(arr, 1));
     }
 
     private static void printArray(int[] arr) {
@@ -42,5 +67,11 @@ public class Driver {
             System.out.print(a + " ");
         }
         System.out.println("");
+    }
+
+    private static void generateRandomArray(int[] arr, int len) {
+        for (int i = 0; i < len; i++) {
+            arr[i] = new Random().nextInt(len);
+        }
     }
 }

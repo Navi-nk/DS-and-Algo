@@ -5,6 +5,7 @@ public class BubbleSort extends Sorting{
 
     @Override
     void sort(int[] inputArr) {
+        final long startTime = System.currentTimeMillis();
         for(int i=0; i<inputArr.length; i++){
             for(int j=i; j<inputArr.length; j++){
                 if(inputArr[j]<inputArr[i]){
@@ -14,6 +15,8 @@ public class BubbleSort extends Sorting{
                 }
             }
         }
+        final long endTime = System.currentTimeMillis();
+        System.out.println("Total execution time: " + (endTime - startTime));
     }
     
 }

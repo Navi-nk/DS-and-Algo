@@ -4,7 +4,10 @@ public class MergeSort extends Sorting {
 
     @Override
     void sort(int[] inputArr) {
+        final long startTime = System.currentTimeMillis();
         mergeSort(inputArr, 0, inputArr.length - 1);
+        final long endTime = System.currentTimeMillis();
+        System.out.println("Total execution time: " + (endTime - startTime));
     }
 
     private void mergeSort(int[] inputArr, int start, int end) {
