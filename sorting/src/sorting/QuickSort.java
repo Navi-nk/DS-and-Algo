@@ -1,6 +1,14 @@
 package sorting;
 
+import java.util.Random;
+
 public class QuickSort extends Sorting {
+
+    private boolean isRandomPivot;
+
+    public QuickSort(boolean isRandomPivot) {
+        this.isRandomPivot = isRandomPivot;
+    }
 
     @Override
     void sort(int[] inputArr) {
@@ -18,9 +26,16 @@ public class QuickSort extends Sorting {
         }
     }
 
-    private int partition(int[] inputArr, int low, int pivot) {
+    private int partition(int[] inputArr, int low, int high) {
+        if (isRandomPivot) {
+            int pivot = new Random().ints(low, high + 1).limit(1).findFirst().getAsInt();
+            int temp = inputArr[high];
+            inputArr[high] = inputArr[pivot];
+            inputArr[pivot] = temp;
+        }
         int i = low;
-        for (int j = low; j < pivot; j++) {
+        int pivot = high;
+        for (int j = low; j < high; j++) {
             if (inputArr[j] < inputArr[pivot]) {
                 if (i != j) {
                     int temp = inputArr[i];

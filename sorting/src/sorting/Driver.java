@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Driver {
 
     public static void main(String[] args) {
-        int[] arr = new int[10000];
+        int[] arr = new int[20];
         generateRandomArray(arr, arr.length);
         System.out.println("Array to be sorted:");
         printArray(arr);
@@ -18,7 +18,8 @@ public class Driver {
         System.out.println("2. Selection Sort");
         System.out.println("3. Merge Sort");
         System.out.println("4. Bubble Sort");
-        System.out.println("5. Quick Sort");
+        System.out.println("5. Quick Sort (last pivot)");
+        System.out.println("6. Quick Sort (random pivot)");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         
@@ -36,7 +37,10 @@ public class Driver {
                 new BubbleSort().sort(arr);
                 break;
             case 5:
-                new QuickSort().sort(arr);
+                new QuickSort(false).sort(arr);
+                break;
+            case 6:
+                new QuickSort(true).sort(arr);
                 break;
             case 0:
                 new InsertionSort().sort(arr);
@@ -51,7 +55,7 @@ public class Driver {
                 new BubbleSort().sort(arr);
                 printArray(arr);
                 generateRandomArray(arr, arr.length);
-                new QuickSort().sort(arr);
+                new QuickSort(false).sort(arr);
                 printArray(arr);
                 break;
             default:
